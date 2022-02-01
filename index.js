@@ -3,15 +3,19 @@ const http = require('http');
 
 const port=8000;
 
-
 const app = express();
+
+// use express router MW
+app.use('/',require('./routes'));
+
+
 
 
 app.listen(port, function(err){
     //interpolation
     if(err)
     {
-        console.log('Error',err);
+        // console.log('Error',err);
         console.log(`error in running the server:${err}`);
        
     }
