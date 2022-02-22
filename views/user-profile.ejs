@@ -1,5 +1,16 @@
 <link rel="stylesheet" href="/css/user_profile.css">
-    <h1> Codeial / Profile Page</h1>
+    <h1> Codeial // <%= title %></h1>
+
+    <div class="top-right">
+        <form action="/signIn/remove-session" method="POST" class="form ">
+            <button type="submit" class="btn btn-primary">Sign Out</button>
+        </form>
+    </div>
+
+    <div>
+        <p>Name: <%= user.name %></p>
+        <p>Email: <%= user.email %></p>
+    </div>
 
 
     

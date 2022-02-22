@@ -1,3 +1,7 @@
-body{
-    background-color: aquamarine;
+body {
+  background-color: snow;
+}
+
+.top-right {
+  float: right;
 }
