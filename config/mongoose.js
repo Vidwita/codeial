@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');//require the library
 
 
-mongoose.connect('mongodb://localhost/codeial_db');//connect to the database
+mongoose.connect('mongodb://localhost/codeial_development');//connect to the database
 
 const db = mongoose.connection;//acquire the connection to check if it successful
 
@@ -11,3 +11,5 @@ db.once('open', function(){
     console.log('Successfully connected to the database');//up and running then print the message
 }
 );
+
+module.exports=db;

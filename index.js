@@ -1,14 +1,19 @@
 const express = require('express');
 const http = require('http');
 const expressLayouts = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser');
 
 const port=8000;
+
+const db = require('./config/mongoose');
+const exp = require('constants');
 
 const app = express();
 
 app.use(express.static('./assets'));
-
+app.use(express.urlencoded());//
 app.use(expressLayouts);
+app.use(cookieParser());
 
 
 // use express router MW

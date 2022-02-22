@@ -5,13 +5,15 @@ const express = require('express');
 const router = express.Router();//router handler
 const homeController = require('../controllers/home_controller');
 const profileController = require('../controllers/profile_controller');
-
+const signInController = require('../controllers/signIn_controller');
 // console.log("Router loaded");
 
 
 
 router.get('/', homeController.home);
 router.use('/users', require('./users'));
+router.use('/signIn',require('./signIn'));
+router.use('/signUp',require('./signUp'));
 
 
 //for any further routes, access from here
