@@ -7,5 +7,6 @@ module.exports.signIn = function(req,res){
 
 //get data of already registered user and create a session of user
 module.exports.createSession = function(req,res){
-   //todo
+   return res.redirect('/');
+
 };

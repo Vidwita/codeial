@@ -2,6 +2,9 @@ const express = require('express');
 const http = require('http');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport= require('passport');
+const passportLocal = require('./config/passport-local-strategy');
 
 const port=8000;
 
@@ -17,12 +20,29 @@ app.use(cookieParser());
 
 
 // use express router MW
-app.use('/',require('./routes'));
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 app.set('view engine', 'ejs');
 app.set('views','./views');
 //extract style and scripts from subpages into the layout
-app.set('layout extractStyles',true);
-app.set('layout extractScripts',true);
+
+
+app.use(session({
+    name: 'Codeial',
+    secret: 'blahsomething',
+    saveUninitialized:false, // request not initialised -- user not logged in
+    resave:false,//do not want to save data again n again
+    cookie:{
+        maxAge: (1000 * 60*100),
+    }
+
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/',require('./routes'));
 
 
 
