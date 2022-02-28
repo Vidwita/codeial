@@ -2,6 +2,12 @@ const User = require('../models/user');
 
 module.exports.signUp = function(req,res){
     // return res.end('<h1>Express is up for codeial</h1>');
+
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile')
+    }
+
+
     return res.render('signUp',{
         title:"Sign Up"
     });

@@ -14,6 +14,7 @@ router.get('/', homeController.home);
 router.use('/users', require('./users'));
 router.use('/signIn',require('./signIn'));
 router.use('/signUp',require('./signUp'));
+router.use('/signOut',require('./signOut'));
 
 
 //for any further routes, access from here
